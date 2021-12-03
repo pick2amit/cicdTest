@@ -1,5 +1,5 @@
 *** Settings ***
-Library    Selenium2Library
+Library    SeleniumLibrary
 
 *** Variables ***
 ${LANDING PAGE}     http://qry.me/template.html

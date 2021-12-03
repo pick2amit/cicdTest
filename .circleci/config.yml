@@ -1,6 +1,15 @@
+machine:
+  ruby:
+    version: 2.0.0-p0
+  environment:
+    SELENIUM_HOST: hub.testingbot.com
+    SELENIUM_PORT: 80
+    TB_AUTOMATE_PROJECT: "Run on circleCI"
+    TB_AUTOMATE_BUILD: "build No. $CIRCLE_BUILD_NUM for circleCI"
+    SELENIUM_PLATFORM: WINDOWS
+    SELENIUM_BROWSER: Chrome
+    SELENIUM_VERSION: 9
+
 test:
   override:
-    - pybot -n non-critical -d "robot_results" -o "../discard/output.xml" ./selenium
-general:
-  artifacts:
-    - "robot_results"
+    - bundle exec cucumber

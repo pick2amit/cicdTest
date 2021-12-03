@@ -1,0 +1,18 @@
+#test:
+#  override:
+#    - pybot -n non-critical -d "robot_results" -o "../discard/output.xml" ./selenium
+#general:
+#  artifacts:
+#    - "robot_results"
+
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.8.0b1-stretch-browsers
+        auth:
+          username: amit2022
+          password: test@2022  # context / project UI env-var reference
+    steps:
+      - checkout
+      - run: pip install -r requirements/dev.txt
